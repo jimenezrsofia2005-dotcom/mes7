@@ -1,0 +1,559 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>League of Legends - Dúo Bot 7 Meses Aniversario</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+  
+  <!-- Fuentes League of Legends -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Marcellus&family=Montserrat:wght@400;500;600;700&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles3d.css">
+</head>
+<body class="lol-game-app">
+
+  <!-- AVISO SUTIL DE ORIENTACIÃ“N PARA MÃ“VIL (NUNCA BLOQUEA) -->
+  <div class="portrait-orientation-hint" id="portraitHint">
+    ðŸ”„ Para una mejor experiencia, gira tu celular a horizontal
+  </div>
+
+  <!-- =========================================================================
+       FASE 1: CLIENTE DE LEAGUE OF LEGENDS ("¡PARTIDA ENCONTRADA!")
+       ========================================================================= -->
+  <section class="game-phase phase-match-found active" id="phaseMatchFound">
+    <div class="match-found-backdrop"></div>
+    <div class="match-found-card">
+      
+      <!-- Círculo Hextech Central con Anillos Giratorios -->
+      <div class="match-found-circle">
+        <svg class="hextech-timer-svg" viewBox="0 0 300 300">
+          <circle class="ring-bg" cx="150" cy="150" r="135" />
+          <circle class="ring-progress" id="matchTimerRing" cx="150" cy="150" r="135" />
+        </svg>
+
+        <div class="match-inner-crest">
+          <div class="crest-emblem">⚔️</div>
+          <span class="match-mode-label">CLASIFICATORIA ROMÁNTICA</span>
+          <h2 class="match-title">¡PARTIDA ENCONTRADA!</h2>
+          <span class="match-sub-info">DÚO BOT • 7 MESES JUNTOS</span>
+          <span class="match-timer-count" id="matchTimerCount">10</span>
+        </div>
+      </div>
+
+      <!-- Los Dos Campeones Confirmados -->
+      <div class="match-duo-preview">
+        <div class="duo-slot">
+          <div class="duo-avatar-frame">
+            <img src="./assets/avatar_boy_red.jpg" alt="Camus">
+          </div>
+          <span class="duo-slot-name" id="matchBoyName">CAMUS (ADC)</span>
+        </div>
+        <div class="duo-heart-badge">❤️</div>
+        <div class="duo-slot">
+          <div class="duo-avatar-frame">
+            <img src="./assets/avatar_girl.jpg" alt="Lyra">
+          </div>
+          <span class="duo-slot-name" id="matchGirlName">LYRA (Support)</span>
+        </div>
+      </div>
+
+      <!-- Botón Hexagonal ACEPTAR -->
+      <div class="match-accept-action">
+        <button class="lol-accept-btn" id="matchAcceptBtn">
+          <span class="btn-hex-text">ACEPTAR</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FASE 2: PANTALLA DE CARGA LEAGUE OF LEGENDS (MARCOS DE CAMPEÓN)
+       ========================================================================= -->
+  <section class="game-phase phase-loading" id="phaseLoading">
+    <div class="loading-bg-art" style="background-image: url('./assets/summoners_rift_real.jpg');"></div>
+    <div class="loading-veil"></div>
+
+    <div class="loading-container">
+      <div class="loading-top-banner">
+        <div class="gold-wing left"></div>
+        <div class="banner-core-text">
+          <span class="loading-gamemode">LA GRIETA DEL AMOR • 7 MESES</span>
+          <h2>CARGANDO PARTIDA</h2>
+        </div>
+        <div class="gold-wing right"></div>
+      </div>
+
+      <!-- Tarjetas de Invocador Dúo Bot -->
+      <div class="loading-cards-duo">
+        
+        <!-- Tarjeta de ÉL (Novio) -->
+        <div class="summoner-card card-boy">
+          <div class="card-border-lol">
+            <div class="gem-socket top"></div>
+            <div class="card-photo-box">
+              <img src="./assets/avatar_boy_red.jpg" alt="Novio" class="card-photo-img">
+            </div>
+            <div class="card-meta-box">
+              <div class="card-spells">
+                <span class="spell-slot" title="Destello">⚡</span>
+                <span class="spell-slot" title="Ignición">🔥</span>
+                <span class="m7-badge">M7</span>
+              </div>
+              <h3 id="loadBoyName">CAMUS</h3>
+              <span class="load-role" id="loadBoyRole">ADC Invencible</span>
+              <span class="load-champ" id="loadBoyChamp">Dueño de mi corazón</span>
+            </div>
+            <div class="gem-socket bottom"></div>
+          </div>
+        </div>
+
+        <div class="loading-vs-badge">
+          <div class="vs-circle">❤️</div>
+          <span>DÚO ETERNO</span>
+        </div>
+
+        <!-- Tarjeta de ELLA (Novia) -->
+        <div class="summoner-card card-girl">
+          <div class="card-border-lol">
+            <div class="gem-socket top"></div>
+            <div class="card-photo-box">
+              <img src="./assets/avatar_girl.jpg" alt="Lyra" class="card-photo-img">
+            </div>
+            <div class="card-meta-box">
+              <div class="card-spells">
+                <span class="spell-slot" title="Destello">⚡</span>
+                <span class="spell-slot" title="Curación">💚</span>
+                <span class="m7-badge">M7</span>
+              </div>
+              <h3 id="loadGirlName">LYRA</h3>
+              <span class="load-role" id="loadGirlRole">Support Eterna</span>
+              <span class="load-champ" id="loadGirlChamp">Ahri / Yuumi de mi corazón</span>
+            </div>
+            <div class="gem-socket bottom"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra de Carga -->
+      <div class="loading-meter-pane">
+        <div class="meter-info">
+          <span id="loadStatusText">Sincronizando corazones en la Grieta...</span>
+          <strong id="loadPercentNum">0%</strong>
+        </div>
+        <div class="meter-track">
+          <div class="meter-fill" id="loadFill">
+            <div class="meter-crystal"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="loading-tip-pane">
+        <span class="tip-gem">💎</span>
+        <p id="loadTipText">"Sabías que: Jugar a tu lado otorga un bufo permanente de +999 de felicidad."</p>
+      </div>
+
+      <button class="lol-btn-primary" id="enterGameDirectBtn">
+        <span class="btn-shine"></span>
+        <span class="btn-text">⚔️ ENTRAR A LA GRIETA</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FASE 3: EL VIDEOJUEGO DE LA GRIETA EN PANTALLA COMPLETA (100vw x 100vh)
+       ========================================================================= -->
+  <main class="game-phase phase-gameplay" id="phaseGameplay">
+
+    <!-- ESCENARIO 3D: cámara con perspectiva + mundo grande inclinado -->
+    <div class="summoners-rift-viewport" id="riftViewport">
+
+      <div class="tilt-stage" id="tiltStage">
+        <div class="rift-world" id="riftWorld">
+
+          <!-- Ping verde de destino (sobre el suelo) -->
+          <div class="click-indicator-layer" id="clickIndicatorLayer"></div>
+
+          <!-- 5 Destellos mágicos secretos en los arbustos -->
+          <div class="secret-sparks-layer" id="secretSparksLayer"></div>
+
+          <!-- Cofres Hextech y Nexo -->
+          <div class="chests-interactive-layer" id="chestsInteractiveLayer"></div>
+
+          <!-- CAMUS Y LYRA: de la mano, con piernas animadas por capas -->
+          <div class="duo-champions-pawn" id="duoChampionsPawn">
+
+            <div class="lol-champions-overhead">
+              <div class="overhead-names" id="pawnNamesTag">CAMUS &amp; LYRA</div>
+              <div class="overhead-hp-container">
+                <div class="overhead-level-circle" id="overheadLevelCircle">1</div>
+                <div class="overhead-hp-track">
+                  <div class="overhead-hp-fill" id="overheadHpFill" style="width: 14.3%;"></div>
+                  <div class="overhead-hp-segments">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="overhead-heal-floating-layer" id="overheadHealLayer"></div>
+            </div>
+
+            <div class="champions-sprite-container" id="championsSpriteContainer">
+              <div class="champions-ground-shadow"></div>
+              <div class="movement-speed-trail"></div>
+              <div class="spell-fx-layer" id="spellFxLayer"></div>
+              <div class="duo-rig" id="championsSpriteImg">
+                <div class="rig-bob">
+                  <img src="./assets/champions_walking_red.png" alt="" class="rig-layer rig-body">
+                  <img src="./assets/champions_walking_red.png" alt="" class="rig-layer rig-boy-back">
+                  <img src="./assets/champions_walking_red.png" alt="" class="rig-layer rig-girl-back">
+                  <img src="./assets/champions_walking_red.png" alt="" class="rig-layer rig-boy-front">
+                  <img src="./assets/champions_walking_red.png" alt="Camus y Lyra" class="rig-layer rig-girl-front">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Brújula: flecha hacia el próximo cofre cuando está fuera de pantalla -->
+      <div class="target-compass" id="targetCompass"><span class="compass-arrow">➤</span><span class="compass-label" id="compassLabel">Cofre 1</span></div>
+
+      <!-- Neblina del horizonte -->
+      <div class="horizon-fog"></div>
+
+    </div>
+
+    <!-- MINIMAPA CUADRADO ESTILO LEAGUE OF LEGENDS (ESQUINA SUPERIOR IZQUIERDA) -->
+    <div class="lol-minimap-panel">
+      <div class="minimap-frame">
+        <div class="minimap-bg" style="background-image: url('./assets/summoners_rift_real.jpg');"></div>
+        <div class="minimap-radar-sweep"></div>
+        <!-- Puntos de los 7 cofres y de los campeones en el minimapa -->
+        <div class="minimap-nodes-layer" id="minimapNodesLayer"></div>
+        <div class="minimap-player-dot" id="minimapPlayerDot">❤️</div>
+      </div>
+      <div class="minimap-label">LA GRIETA • DÚO BOT</div>
+    </div>
+
+    <!-- HUD SUPERIOR DISCRETO (ESTADO Y CONFIGURACIÓN) -->
+    <div class="hud-top-actions">
+      <div class="hud-chest-counter-badge">
+        <span class="chest-ico">🎁</span>
+        <span>OBJETIVOS:</span>
+        <strong id="barChestsCount">0 / 7</strong>
+      </div>
+      <button class="hud-tool-btn" id="soundToggleBtn" title="Sonido">
+        <span id="soundIcon">🔊</span>
+      </button>
+      <button class="hud-tool-btn gold" id="openEditorBtn" title="Personalizar textos">
+        <span>✏️ Editar</span>
+      </button>
+    </div>
+
+    <!-- HUD INFERIOR REAL DE LEAGUE OF LEGENDS (HABILIDADES Q-W-E-R) -->
+    <footer class="gameplay-bottom-hud">
+      <div class="lol-hud-console">
+        
+        <!-- Retrato Circular del Campeón -->
+        <div class="hud-champ-portrait">
+          <img src="./assets/avatar_boy_red.jpg" alt="Camus">
+          <div class="hud-portrait-border"></div>
+          <span class="hud-level-circle" id="hudLevelBadge">1</span>
+        </div>
+
+        <!-- Barras de Vida y Maná de la Consola -->
+        <div class="hud-stats-bars">
+          <div class="console-bar hp-bar">
+            <div class="bar-fill" id="hudHpBarFill" style="width: 14.3%;"></div>
+            <span class="bar-text" id="hudHpBarText">VIDA: 100 / 700 HP</span>
+          </div>
+          <div class="console-bar mp-bar">
+            <div class="bar-fill" style="width: 100%;"></div>
+            <span class="bar-text">MANÁ: ∞ / ∞ (AMOR SIN COOLDOWN)</span>
+          </div>
+        </div>
+
+        <!-- Habilidades Q - W - E - R estilo LoL -->
+        <div class="hud-spells-dock">
+          
+          <div class="spell-hex-slot" id="spellSlotQ" title="Q: Amor Eterno (Corazón Flotante)">
+            <span class="spell-key-tag">Q</span>
+            <span class="spell-icon-glyph">💖</span>
+            <span class="spell-name-tag">Amor</span>
+          </div>
+
+          <div class="spell-hex-slot" id="spellSlotW" title="W: Apoyo Incondicional (Escudo Azul)">
+            <span class="spell-key-tag">W</span>
+            <span class="spell-icon-glyph">🛡️</span>
+            <span class="spell-name-tag">Escudo</span>
+          </div>
+
+          <div class="spell-hex-slot" id="spellSlotE" title="E: Sinergia Perfecta (Ping de LoL)">
+            <span class="spell-key-tag">E</span>
+            <span class="spell-icon-glyph">✨</span>
+            <span class="spell-name-tag">Ping</span>
+          </div>
+
+          <!-- R: Habilidad Definitiva Brillante (OBLIGATORIAMENTE AVANZAR) -->
+          <div class="spell-hex-slot ultimate-r-slot" id="ultimateRBtn" title="R: Avanzar al Siguiente Cofre/Nexo">
+            <div class="ultimate-glow-ring"></div>
+            <span class="spell-key-tag">R</span>
+            <span class="spell-icon-glyph">🚶‍♂️🚶‍♀️</span>
+            <span class="spell-name-tag">¡AVANZAR!</span>
+          </div>
+
+        </div>
+
+        <!-- Botones de Navegación Rápida -->
+        <div class="hud-nav-buttons">
+          <button class="nav-arrow-btn" id="navPrevBtn" title="Cofre anterior">⬆️</button>
+          <button class="nav-arrow-btn gold" id="navNextBtn" title="Avanzar al siguiente">⬇️</button>
+        </div>
+
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- =========================================================================
+       MODAL DE COFRE HEXTECH (NIVEL 1 AL 6)
+       ========================================================================= -->
+  <div class="lol-modal-backdrop" id="chestModal">
+    <div class="chest-modal-dialog">
+      <div class="modal-hextech-frame">
+        <button class="modal-close-btn" id="closeChestModalBtn">✕</button>
+        
+        <div class="modal-header-crest">
+          <div class="chest-badge-level" id="modalLevelBadge">NIVEL 1</div>
+          <h3 class="modal-chest-title" id="modalChestTitle">El Inicio de la Partida</h3>
+          <span class="modal-chest-subtitle" id="modalChestSubtitle">Cuando todo comenzó</span>
+        </div>
+
+        <!-- Cofre Hextech Abierto Real -->
+        <div class="modal-chest-visual">
+          <img src="./assets/hextech_chest_open.png" alt="Cofre Hextech Abierto" class="modal-chest-img">
+        </div>
+
+        <div class="modal-chest-message-box">
+          <p class="modal-message-text" id="modalChestMessage">Mensaje cargando...</p>
+        </div>
+
+        <div class="modal-reward-bar">
+          <span class="reward-tag">RECOMPENSA OBTENIDA:</span>
+          <span class="reward-name" id="modalChestReward">Insignia de Amor (+100)</span>
+        </div>
+
+        <div class="modal-actions">
+          <button class="lol-btn-primary" id="confirmChestBtn">
+            <span class="btn-text">🚶‍♂️ CAMINAR AL SIGUIENTE COFRE</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL DE GRAN VICTORIA (NIVEL 7 FINAL - EXACTO A LEAGUE OF LEGENDS)
+       Flujo Estricto: PASO 1 (Solo Victoria) -> PASO 2 (Botón de Carta) -> 
+       PASO 3 (Lectura Limpia) -> PASO 4 (Botón SÍ) -> PASO 5 (Confeti)
+       ========================================================================= -->
+  <div class="lol-modal-backdrop" id="victoryModal">
+    <div class="victory-stage-wrapper" id="victoryStage">
+      
+      <!-- SUB-FASE A: PASO 1 Y 2 (SOLO EL ESCUDO GIGANTE DE VICTORIA Y BOTÓN DE CARTA) -->
+      <div class="victory-step-emblem active" id="victoryStepEmblem">
+        <div class="victory-crest-official-box">
+          <img src="./assets/lol_victory_screen.jpg" alt="VICTORY" class="victory-crest-img">
+        </div>
+        <div class="victory-emblem-tagline">
+          <span class="victory-gold-tag">7 MESES • MAESTRÍA 7 DÚO ETERNO</span>
+        </div>
+        <div class="victory-emblem-action">
+          <button class="lol-btn-primary victory-open-letter-btn" id="openLetterBtn">
+            <span class="btn-shine"></span>
+            <span class="btn-text">📜 LEER LA CARTA DE LOS 7 MESES</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SUB-FASE B: PASO 3 Y 4 (LECTURA LIMPIA DEL PERGAMINO Y BOTÓN DORADO FINAL) -->
+      <div class="victory-step-letter" id="victoryStepLetter">
+        <div class="letter-scroll-dialog">
+          <button class="modal-close-btn victory-letter-close" id="closeVictoryModalBtn">✕</button>
+
+          <div class="letter-scroll-header">
+            <div class="letter-duo-avatar-frame">
+              <img src="./assets/couple_chibi_red.jpg" alt="Camus &amp; Lyra">
+            </div>
+            <div class="letter-titles-box">
+              <span class="letter-badge-role">DÚO BOT INSEPARABLE</span>
+              <h2 id="letterTitle">A Mi Dúo Eterno en la Grieta y en la Vida</h2>
+              <span class="letter-date-chip" id="letterDate">7 Meses Inolvidables</span>
+            </div>
+          </div>
+
+          <div class="letter-scroll-content" id="letterContent">
+            <!-- Párrafos inyectados dinámicamente -->
+          </div>
+
+          <div class="letter-footer-farewell">
+            <p id="letterFarewell">Con todo mi amor, por siempre y para siempre:</p>
+            <h4 id="letterSignature">Tu Novia y Dúo Favorita ❤️</h4>
+          </div>
+
+          <!-- PASO 4: BOTÓN DORADO EXCLUSIVAMENTE AL FINAL DE LA CARTA -->
+          <div class="letter-action-footer">
+            <button class="golden-nexus-final-btn" id="playAgainBtn">
+              <span class="btn-golden-title">¿Jugamos otra partida juntos? SÍ</span>
+              <span class="btn-golden-sub">❤️ Clic para sellar nuestro amor para siempre ❤️</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL DE CIERRE FINAL PERSONALIZADO (REEMPLAZA AL ALERT DEL NAVEGADOR)
+       Muestra el beso romántico de Camus & Lyra y el mensaje de bloqueo eterno
+       ========================================================================= -->
+  <div class="lol-modal-backdrop" id="finalLockModal">
+    <div class="final-lock-dialog">
+      <div class="final-lock-card">
+        <button class="modal-close-btn" id="closeFinalLockModalBtn">✕</button>
+
+        <div class="final-lock-badge">⚔️ VÍNCULO ETERNO BLOQUEADO ⚔️</div>
+        <h2 class="final-lock-title">¡PARTIDA ACEPTADA PARA SIEMPRE!</h2>
+
+        <!-- Imagen central del beso romántico de los campeones (Camus y Lyra) -->
+        <div class="final-kiss-frame-wrap">
+          <div class="final-kiss-aura"></div>
+          <div class="final-kiss-frame">
+            <img src="./assets/couple_chibi_kiss_red.jpg" alt="Camus y Lyra Beso Romántico" class="final-kiss-img">
+          </div>
+          <div class="final-couple-names">CAMUS &amp; LYRA ❤️ DÚO ETERNO</div>
+        </div>
+
+        <div class="final-lock-message-box">
+          <p class="final-lock-text">Has bloqueado a tu dúo eterno para todas las temporadas de la vida. ¡Nuestra historia apenas comienza! ❤️✨</p>
+        </div>
+
+        <div class="final-lock-actions">
+          <button class="lol-btn-primary final-close-btn" id="finalAcceptDoneBtn">
+            <span class="btn-shine"></span>
+            <span class="btn-text">❤️ PROMETO AMARTE SIEMPRE ❤️</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL EDITOR EN VIVO DE MENSAJES Y CARTA
+       ========================================================================= -->
+  <div class="lol-modal-backdrop" id="editorModal">
+    <div class="editor-modal-dialog">
+      <div class="modal-hextech-frame editor-frame">
+        <div class="editor-modal-header">
+          <h3>✏️ Personalizar Mensajes y Carta de Amor</h3>
+          <p>Escribe tus propios mensajes para los 7 cofres y la carta. Se guardarán al instante.</p>
+          <button class="modal-close-btn" id="closeEditorModalBtn">✕</button>
+        </div>
+
+        <div class="editor-modal-body">
+          <div class="editor-tabs">
+            <button class="editor-tab active" data-tab="tab-nombres">Nombres</button>
+            <button class="editor-tab" data-tab="tab-cofres">7 Cofres</button>
+            <button class="editor-tab" data-tab="tab-carta">Carta de Amor</button>
+          </div>
+
+          <div class="editor-tab-pane active" id="tab-nombres">
+            <div class="form-group">
+              <label>Nombre o Apodo de ÉL (Novio):</label>
+              <input type="text" id="editBoyName" class="lol-input" placeholder="Ej: Mi Amor">
+            </div>
+            <div class="form-group">
+              <label>Rol de ÉL en la Grieta:</label>
+              <input type="text" id="editBoyRole" class="lol-input" placeholder="Ej: ADC Invencible">
+            </div>
+            <div class="form-group">
+              <label>Nombre o Apodo de ELLA (Novia):</label>
+              <input type="text" id="editGirlName" class="lol-input" placeholder="Ej: Mi Princesa">
+            </div>
+            <div class="form-group">
+              <label>Rol de ELLA en la Grieta:</label>
+              <input type="text" id="editGirlRole" class="lol-input" placeholder="Ej: Support Eterna">
+            </div>
+          </div>
+
+          <div class="editor-tab-pane" id="tab-cofres">
+            <div class="editor-chests-accordion" id="editorChestsList"></div>
+          </div>
+
+          <div class="editor-tab-pane" id="tab-carta">
+            <div class="form-group">
+              <label>Título de la Carta:</label>
+              <input type="text" id="editLetterTitle" class="lol-input">
+            </div>
+            <div class="form-group">
+              <label>Contenido de la Carta de Amor:</label>
+              <textarea id="editLetterContent" class="lol-textarea" rows="8"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Despedida:</label>
+              <input type="text" id="editLetterFarewell" class="lol-input">
+            </div>
+            <div class="form-group">
+              <label>Firma:</label>
+              <input type="text" id="editLetterSignature" class="lol-input">
+            </div>
+          </div>
+        </div>
+
+        <div class="editor-modal-footer">
+          <button class="hud-tool-btn" id="resetDefaultsBtn">Restablecer</button>
+          <button class="lol-btn-primary" id="saveEditorChangesBtn">
+            <span class="btn-text">💾 GUARDAR CAMBIOS</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de fotos secretas (estilo Polaroid) -->
+  <div class="secret-photo-modal" id="secretPhotoModal">
+    <div class="polaroid">
+      <button class="polaroid-close" id="secretPhotoClose" aria-label="Cerrar">✕</button>
+      <img id="secretPhotoImg" alt="Foto secreta">
+      <p id="secretPhotoCaption"></p>
+    </div>
+  </div>
+
+  <!-- CICLO FINAL: BOTÓN ÉPICO VOLVER A JUGAR -->
+  <div class="replay-adventure-overlay" id="replayAdventureOverlay">
+    <div class="replay-adventure-card">
+      <div class="replay-crest-badge">👑 VÍNCULO ETERNO COMPLETADO 👑</div>
+      <h2 class="replay-adventure-title">¡PARTIDA DE ANIVERSARIO VICTORIOSA!</h2>
+      <p class="replay-adventure-desc">Han desbloqueado todos los cofres de amor y conquistado la Grieta juntos.</p>
+      <button class="epic-replay-btn" id="epicReplayBtn">
+        <span class="replay-btn-glow"></span>
+        <span class="replay-btn-text">🔄 VOLVER A JUGAR</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
